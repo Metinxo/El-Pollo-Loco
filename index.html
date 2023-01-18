@@ -30,19 +30,62 @@
     <link rel="icon" href="img/4_enemie_boss_chicken/4_hurt/G21.png">
 </head>
 
-<body onload="init()">
+<body>
 
     <h1>El Pollo Loco</h1>
+    <div class="container">
+        <canvas id="canvas" width="720px" height="480px">
 
-    <canvas id="canvas" width="720px" height="480px">
 
-    </canvas>
+        </canvas>
+
+        <div id="playButtons" class="playButtons" style="display:none;">
+        <div id="throw" class="throw">
+        <h3 style="margin-bottom: 0; font-weight: normal; letter-spacing: 5px;">THROW</h3>
+        <h4 style="margin-top: 5px; font-weight: normal; letter-spacing: 5px;">PRESS D</h4></div>
+
+            <div class="arrows">
+                <div id="left" class="arrowFields"><img src="img/keyboard_img/left-arrow.png">LEFT</div>
+                <div id="up" class="arrowFields"><img src="img/keyboard_img/space.png">SPACE</div>
+                <div id="right" class="arrowFields"><img src="img/keyboard_img/right-arrow.png">RIGHT</div>
+            </div>
+
+
+            
+    </div>
+
+
+   
+        <div id="startScreen" class="startScreenContainer">
+            <div class="buttonsContainerStartGame">
+                <img onclick="startGame()" src="img/play-3-64.png" class="buttons" style="width: 80px;">
+            </div>
+        </div>
+
+        <div id="endScreenWin" class="endScreen d-none">
+            <div class="buttonsContainer">
+                <img onclick="goToStartMenu()" src="img/to-menu.png" class="buttonsEndScreen">
+                <span>GO TO MENU AND PLAY AGAIN !</span>
+            </div>
+            <div class="gameResult">You Win</div>
+        </div>
+
+
+        <div id="endScreenLose" class="endScreen d-none">
+            <div class="buttonsContainer">
+                <img onclick="goToStartMenu()" src="img/to-menu.png" class="buttonsEndScreen">
+                <span>GO TO MENU AND PLAY AGAIN !</span>
+            </div>
+            <div style="color: rgb(191, 0, 0);" class="gameResult">You Lose</div>
+        </div>
+    </div>
     <div class="keyboardesc">
         <span>Walk Left <img class="keyboardimg" src="img/keyboard_img/left-arrow.png"></span>
         <span>Walk Right <img class="keyboardimg" src="img/keyboard_img/right-arrow.png"></span>
         <span>Jump <img class="keyboardimg" src="img/keyboard_img/space.png"></span>
         <span>Throw <img class="keyboardimg" src="img/keyboard_img/D.png"></span>
     </div>
+
 </body>
 
 </html>

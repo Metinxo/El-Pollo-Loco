@@ -1,6 +1,6 @@
 class StatusBarCoin extends DrawableObject {
-
     collectedCoins= 0;
+
 
     IMAGES_COINS = [
         'img/7_statusbars/3_icons/icon_coin.png'

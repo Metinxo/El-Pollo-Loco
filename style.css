@@ -7,8 +7,11 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     background-image: url('img/5_background/desert.png');
     background-position: center;
+    margin: 0;
+    height: 100vh;
     font-family: 'zabras', Arial, Helvetica, sans-serif;
 }
 
@@ -19,7 +22,7 @@ h1 {
 }
 
 span {
-    font-size: 32px;
+    font-size: 46px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,15 +30,18 @@ span {
 }
 
 canvas {
+    height: inherit;
+    width: inherit;
     background-color: black;
-    border-radius: 16px;
-    box-shadow: 4px 4px 8px rgb(0 0 0 / 50%);
+    border-radius: 6px;
+    position: absolute;
+    box-shadow: 2px 2px 2px 2px rgb(0, 0, 0, 0.3);
+    display: block;
 }
 
 .keyboardimg {
-width: 20px;
+    width: 20px;
 }
-
 
 .keyboardesc {
     margin-top: 30px;
@@ -43,4 +49,201 @@ width: 20px;
     display: flex;
     justify-content: center;
     align-self: center;
+}
+
+.endScreen {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    border-radius: 6px;
+}
+
+.gameResult {
+    font-size: 100px;
+    text-align: center;
+    color: rgb(31, 204, 18);
+    margin-top: 80px;
+    text-decoration: underline;
+    letter-spacing: 4px;
+}
+
+.container {
+    position: relative;
+    width: 720px;
+    height: 480px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.endScreen {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    border-radius: 6px;
+}
+
+.d-none {
+    display: none;
+}
+
+.arrowFields {
+    border: rgb(132, 130, 130, 0.7);
+    border-radius: 6px;
+    padding: 6px;
+    width: 40px;
+    height: 40px;
+    margin-left: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(132, 130, 130, 0.6);
+}
+
+.arrowFields img {
+    width: 20px;
+    height: 20px;
+}
+
+.arrows {
+    display: flex;
+    align-items: center;
+}
+
+
+.buttons:hover {
+    cursor: pointer;
+}
+
+.buttonsEndScreen:hover {
+    cursor: pointer;
+
+}
+
+.buttonsContainer {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    margin-top: 80px;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+
+.buttonsContainerStartGame {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.volume {
+    margin-left: 180px;
+}
+
+.buttonsEndScreen {
+    padding-right: 48px;
+    width: 64px;
+}
+
+.startScreenContainer {
+    width: inherit;
+    height: inherit;
+    position: relative;
+    background: rgba(0, 0, 0, 0.8) url('img/9_intro_outro_screens/start/startscreen_2.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: -72px;
+    border-radius: 6px;
+    box-shadow: 2px 2px 2px 2px rgb(0, 0, 0, 0.3);
+}
+
+.playButtons {
+    z-index: 999;
+    position: absolute;
+    left: 30px;
+    right: 30px;
+    bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.arrowFields {
+    border: rgb(132, 130, 130, 0.7);
+    border-radius: 6px;
+    padding: 6px;
+    width: 40px;
+    height: 40px;
+    margin-left: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(251 208 208 / 60%);
+    flex-direction: column;
+}
+
+.arrowFields img {
+    width: 20px;
+    height: 20px;
+}
+
+.throw {
+    padding: 8px;
+    font-size: 18px;
+    border-radius: 8px;
+    border: rgb(132, 130, 130, 0.7);
+    width: 120px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(251 208 208 / 60%);
+    flex-direction: column;
+}
+
+
+/* Smartphones -------- */
+@media only screen and (max-width: 730px) {
+    .container {
+        width: 100%;
+    }
+
+    body {
+        background-image: linear-gradient(45deg, #709FB0, #bcbfee) !important;
+    }
+
+    .startScreenContainer {
+        background-position: center;
+    }
+
+    h1 {
+        display: none;
+    }
+
+    .keyboardesc {
+        display: none;
+    }
+}
+
+/* Smartphones -------- */
+@media only screen and (max-height: 480px) {
+    .container {
+        width: 100%;
+        height: 100vh;
+    }
+
+    body {
+       background-image: linear-gradient(45deg, #709FB0, #bcbfee) !important;
+    }
+
+    h1 {
+        display: none;
+    }
+
+    .keyboardesc {
+        display: none;
+    }
 }

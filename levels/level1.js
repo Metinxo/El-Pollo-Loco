@@ -1,4 +1,7 @@
-const level1 = new Level(
+let level1;
+
+function initLevel() {
+level1 = new Level(
     [
         new Endboss(),
         new Chicken(),
@@ -25,6 +28,7 @@ const level1 = new Level(
         new LilChicken()
 ],
 
+
 [
     new Cloud(),
     new Cloud(),
@@ -40,8 +44,14 @@ const level1 = new Level(
     new Cloud2(),
     new Cloud(),
     new Cloud2(),
+    new Cloud(),
+    new Cloud2(),
+    new Cloud2(),
+    new Cloud(),
     new Cloud2()
 ],
+
+
 [
     new BackgroundObject('img/5_background/layers/air.png', -719),
     new BackgroundObject('img/5_background/layers/3_third_layer/2.png', -719),
@@ -93,10 +103,12 @@ const level1 = new Level(
     new BackgroundObject('img/5_background/layers/2_second_layer/1.png', 719*8),
     new BackgroundObject('img/5_background/layers/1_first_layer/1.png', 719*8),
 
-    
-    
-
+    new BackgroundObject('img/5_background/layers/air.png', 719*9),
+    new BackgroundObject('img/5_background/layers/3_third_layer/2.png', 719*9),
+    new BackgroundObject('img/5_background/layers/2_second_layer/2.png', 719*9),
+    new BackgroundObject('img/5_background/layers/1_first_layer/2.png', 719*9),
 ],
+
 
 [
             new Bottle(0, 950, 215),
@@ -126,6 +138,7 @@ const level1 = new Level(
             new Bottle(1, 3800, 360),
 ],
 
+
 [
     new Coin(),
     new Coin(),
@@ -141,5 +154,5 @@ const level1 = new Level(
     new Coin(),
     new Coin()
 ]
-
 );
+}
