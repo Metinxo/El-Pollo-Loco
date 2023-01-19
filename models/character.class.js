@@ -88,49 +88,90 @@ class Character extends MovableObject {
 
 
     animate() {
-        setInterval(() => {
-            this.walking_sound.pause();
-            if (this.world.keyboard.RIGHT && this.x < this.world.level.level_end_x) {
-                this.moveRight();
-                this.otherDirection = false;
-                this.characterRun();
-            }
-
-            if (this.world.keyboard.LEFT && this.x > 0) {
-                this.moveLeft();
-                this.walking_sound.play();
-                this.otherDirection = true;
-            }
-
-            if (this.world.keyboard.SPACE && !this.isAboveGround()) {
-                this.jump();
-                this.characterRun();
-            }
-            this.world.camera_x = -this.x + 100;
-        }, 1000 / 60);
-        setInterval(() => {
-            if (this.isDead()) {
-                this.playAnimation(this.IMAGES_DEAD);
-            } else if (this.isHurt()) {
-                this.playAnimation(this.IMAGES_HURT);
-                this.characterHurt();
-            } else if (this.isAboveGround()) {
-                this.playAnimation(this.IMAGES_JUMPING);
-                this.renderPepeJump();
-            } else {
-                this.playAnimation(this.IMAGES_SHORT_WAIT);
-                if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT) {
-                    // WALK ANIMATION
-                    this.playAnimation(this.IMAGES_WALKING);
-                }
-            }
-        }, 100);
+        setInterval(() => this.moveCharacter(), 1000 / 60);
+        setInterval(() => this.playCharacter(), 100);
     }
 
 
-        /**
- * Jump
+    moveCharacter() {
+        this.walking_sound.pause();
+        if (this.canMoveRight())
+            this.moveRight();
+        if (this.canMoveLeft())
+            this.moveLeft();
+        if (this.canJump()) {
+            this.jump();
+            this.characterRun();
+        }
+        this.world.camera_x = -this.x + 100;
+    }
+
+
+    /**
+ * function for move right
  */
+    canMoveRight() {
+        return this.world.keyboard.RIGHT && this.x < (this.world.level.level_end_x);
+    }
+
+
+    /**
+ * function for move right
+ */
+    moveRight() {
+        super.moveRight();
+        this.otherDirection = false;
+        this.characterRun();
+    }
+
+/**
+ * 
+ * @returns function for move Left
+ */
+    canMoveLeft() {
+        return this.world.keyboard.LEFT && this.x > 0;
+    }
+
+
+/**
+ * function for move left +  Walk sound
+ */
+    moveLeft() {
+        super.moveLeft();
+        this.walking_sound.play();
+        this.otherDirection = true;
+    }
+
+/**
+ * 
+ * @returns can Jump
+ */
+    canJump() {
+       return this.world.keyboard.SPACE && !this.isAboveGround();
+    }
+
+
+    playCharacter() {
+        if (this.isDead()) {
+            this.playAnimation(this.IMAGES_DEAD);
+        } else if (this.isHurt()) {
+            this.playAnimation(this.IMAGES_HURT);
+            this.characterHurt();
+        } else if (this.isAboveGround()) {
+            this.playAnimation(this.IMAGES_JUMPING);
+            this.renderPepeJump();
+        } else {
+            this.playAnimation(this.IMAGES_SHORT_WAIT);
+            if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT) {
+                this.playAnimation(this.IMAGES_WALKING);
+            }
+        }
+    }
+
+
+    /**
+* Jump
+*/
     jump() {
         this.speedY = 23;
     }
