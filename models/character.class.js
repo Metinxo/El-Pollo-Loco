@@ -111,7 +111,8 @@ class Character extends MovableObject {
  * function for move right
  */
     canMoveRight() {
-        return this.world.keyboard.RIGHT && this.x < (this.world.level.level_end_x);
+        return this.world.keyboard.RIGHT &&
+        this.x < (this.world.level.level_end_x);
     }
 
 
@@ -162,12 +163,17 @@ class Character extends MovableObject {
             this.renderPepeJump();
         } else {
             this.playAnimation(this.IMAGES_SHORT_WAIT);
-            if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT) {
+            if (this.isMoving()) {
                 this.playAnimation(this.IMAGES_WALKING);
             }
         }
     }
 
+
+    isMoving() {
+        return this.world.keyboard.RIGHT ||
+        this.world.keyboard.LEFT;
+    }
 
     /**
 * Jump

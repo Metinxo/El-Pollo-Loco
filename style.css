@@ -64,7 +64,14 @@ canvas {
     font-size: 100px;
     text-align: center;
     color: rgb(31, 204, 18);
-    margin-top: 80px;
+    text-decoration: underline;
+    letter-spacing: 4px;
+}
+
+.gameResultLose {
+    color: rgb(191, 0, 0);
+    font-size: 100px;
+    text-align: center;
     text-decoration: underline;
     letter-spacing: 4px;
 }
@@ -204,6 +211,10 @@ canvas {
     flex-direction: column;
 }
 
+.turnYourPhone {
+    display: none;
+}
+
 
 /* Smartphones -------- */
 @media only screen and (max-width: 730px) {
@@ -236,7 +247,7 @@ canvas {
     }
 
     body {
-       background-image: linear-gradient(45deg, #709FB0, #bcbfee) !important;
+        background-image: linear-gradient(45deg, #709FB0, #bcbfee) !important;
     }
 
     h1 {
@@ -246,4 +257,20 @@ canvas {
     .keyboardesc {
         display: none;
     }
+}
+
+@media only screen and (max-width: 652px) {
+    .turnYourPhone {
+        display: flex;
+    }
+
+}
+@media only screen and (max-height: 281px) {
+.gameResult {
+    display: none;
+}
+
+.gameResultLose {
+    display: none;
+}
 }
